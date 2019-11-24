@@ -1,5 +1,5 @@
 export interface Friend {
-    id?: string,
-    name: string
-    friendOf: string
+    id?: string;
+    name: string;
+    friendOf: string;
 }
