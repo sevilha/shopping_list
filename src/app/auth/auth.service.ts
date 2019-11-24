@@ -6,9 +6,7 @@ import * as firebase from 'firebase'
 })
 export class AuthService {
 
-  constructor(
-
-  ) { }
+  constructor() { }
 
   loginWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider;
@@ -26,5 +24,22 @@ export class AuthService {
   logout() {
     firebase.auth().signOut()
       .catch(err => console.log('%c Error to signOut: ', 'color: orange', err))
+  }
+
+  getToken(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+        unsubscribe();
+        if (user) {
+          user.getIdToken().then((idToken) => {
+            resolve(idToken);
+          }, (error) => {
+            resolve(null);
+          });
+        } else {
+          resolve(null);
+        }
+      });
+    });
   }
 }
