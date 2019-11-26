@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListsService } from './lists.service';
 
 @Component({
   selector: 'app-lists',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListsComponent implements OnInit {
 
-  constructor() { }
+  lists: Array<any>;
+  uid: string;
 
-  ngOnInit() {
+  constructor(
+    private listsService: ListsService
+  ) { }
+
+  async ngOnInit() {
+    this.lists = await this.listsService.getListsByOwner(this.uid);
   }
 
 }

@@ -1,3 +1,22 @@
-<p>
-  lists works!
-</p>
+<section class="title">
+  Listas
+</section>
+
+<section class="content">
+  <ul *ngIf="lists">
+    <li *ngFor="let list of lists">
+      <div>{{list.title}}</div>
+      <div>{{list.date}}</div>
+      <div *ngFor="let friend of list.friends">
+        {{friend}}
+      </div>
+    </li>
+  </ul>
+  <ul *ngIf="!lists">
+    <li>
+      <label>
+        Vazio
+      </label>
+    </li>
+  </ul>
+</section>
