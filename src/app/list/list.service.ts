@@ -17,11 +17,11 @@ export class ListService {
   }
 
   updateList(list: List): Promise<any> {
-    return firebase.firestore().collection(endpoint).doc(list.id).update(list)
+    return firebase.firestore().collection(endpoint).doc(list.id).update(list);
   }
 
   saveList(list: List): Promise<any> {
-    return firebase.firestore().collection(endpoint).add(list)
+    return firebase.firestore().collection(endpoint).add(list);
   }
 
   deleteList(list: List): Promise<any> {

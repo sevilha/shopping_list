@@ -11,7 +11,7 @@ export class FriendsService {
   }
 
   addFriend(friend: Friend): Promise<any> {
-    return firebase.firestore().collection('friends').add(friend)
+    return firebase.firestore().collection('friends').add(friend);
   }
 
   getAllFriends(uid: string): Promise<any> {
