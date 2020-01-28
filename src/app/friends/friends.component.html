@@ -1,3 +1,10 @@
-<p>
-  friends works!
-</p>
+<section class="content">
+  <form [formGroup]="friendForm">
+    <label for="name">Nome</label>
+    <input type="text" class="form-control" formControlName="name" [ngClass]="aplyCssError('name')">
+    <app-field-control-error [showError]="verifyValidTouched('name')"
+      msgError="O nome de seu amigo não pode ser vazio e deve conter pelo menos 6 letras.">
+    </app-field-control-error>
+    <button class="btn-sm primary">Adicionar</button>
+  </form>
+</section>
