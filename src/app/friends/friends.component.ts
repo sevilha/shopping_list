@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FriendsService } from './friends.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Friend } from '../model/friend';
 
 @Component({
   selector: 'app-friends',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FriendsComponent implements OnInit {
 
-  constructor() { }
+  public friendForm: FormGroup;
+  private friend: Friend;
+
+  constructor(
+    private friendsService: FriendsService,
+    private formBuilder: FormBuilder
+  ) { }
 
   ngOnInit() {
+    this.friendForm = this.formBuilder.group({
+      name: [null, [Validators.required, Validators.minLength(6)]]
+    });
+  }
+
+  verifyValidTouched(field) {
+    if (this.friendForm.get(field).invalid) {
+      return true;
+    }
+    return false;
+  }
+
+  aplyCssError(field: string) {
+    return {
+      'has-error': this.verifyValidTouched(field)
+    };
   }
 
 }
