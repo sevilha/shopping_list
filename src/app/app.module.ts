@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { TagInputModule } from 'ngx-chips';
 
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { FriendsComponent } from './friends/friends.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    TagInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
