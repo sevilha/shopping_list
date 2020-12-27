@@ -14,3 +14,8 @@ A software for sharing shopping lists with others using Angular and Firebase.
  - Cloud Storage
  - Push Notifications
  
+ # CSS 
+ * Materialize
+ 
+ Materialize is a responsive front-end framework based on Material Design
+ 
