@@ -6,7 +6,7 @@ A software for sharing shopping lists with others using Angular and Firebase.
 7.2.0
 
 # Firebase Products
-* Products
+**Products**
  - Authentication
  - Firestore
  - Hosting
@@ -15,7 +15,7 @@ A software for sharing shopping lists with others using Angular and Firebase.
  - Push Notifications
  
  # CSS 
- * Materialize
+ **Materialize**
  
  Materialize is a responsive front-end framework based on Material Design
  
