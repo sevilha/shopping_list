@@ -5,7 +5,6 @@ import { ListService } from './list.service';
 import { Friend } from '../model/friend';
 import { Item } from '../model/item';
 import { FriendsService } from '../friends/friends.service';
-import { User } from 'firebase';
 
 @Component({
   selector: 'app-list',
@@ -22,7 +21,7 @@ export class ListComponent implements OnInit {
 
   itemForm: FormGroup;
 
-  user: User;
+  user;
 
   constructor(
     private listService: ListService,

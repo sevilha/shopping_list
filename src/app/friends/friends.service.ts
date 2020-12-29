@@ -11,14 +11,14 @@ export class FriendsService {
   }
 
   addFriend(friend: Friend): Promise<any> {
-    return firebase.firestore().collection('friends').add(friend);
+    return firebase.default.firestore().collection('friends').add(friend);
   }
 
   getAllFriends(uid: string): Promise<any> {
-    return firebase.firestore().collection('friends').where('friendOf', '==', uid).get();
+    return firebase.default.firestore().collection('friends').where('friendOf', '==', uid).get();
   }
 
   getFriend(id: string): Promise<any> {
-    return firebase.firestore().collection('friends').doc(id).get();
+    return firebase.default.firestore().collection('friends').doc(id).get();
   }
 }

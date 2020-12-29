@@ -13,19 +13,19 @@ export class ListService {
   }
 
   getList(id: string): Promise<any> {
-    return firebase.firestore().collection(endpoint).doc(id).get();
+    return firebase.default.firestore().collection(endpoint).doc(id).get();
   }
 
   updateList(list: List): Promise<any> {
-    return firebase.firestore().collection(endpoint).doc(list.id).update(list);
+    return firebase.default.firestore().collection(endpoint).doc(list.id).update(list);
   }
 
   saveList(list: List): Promise<any> {
-    return firebase.firestore().collection(endpoint).add(list);
+    return firebase.default.firestore().collection(endpoint).add(list);
   }
 
   deleteList(list: List): Promise<any> {
-    return firebase.firestore().collection(endpoint).doc(list.id).delete();
+    return firebase.default.firestore().collection(endpoint).doc(list.id).delete();
   }
 
 }

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';
-import { Observer } from 'rxjs';
 
 const endpoint = 'list';
 
@@ -12,9 +11,10 @@ export class ListsService {
   constructor() { }
 
   getListsByOwner(uid: string): Promise<any> {
-    return firebase.firestore().collection(endpoint)
-      .orderBy('date', 'asc')
-      .where('owner', '==', uid)
+    const id = 1;
+    return firebase.default.firestore().collection(endpoint)
+      //.orderBy('date', 'asc')
+      .where('owner', '==', id)
       .get()
       .then(actions => {
         return actions.docs.map(action => {
@@ -26,7 +26,7 @@ export class ListsService {
   }
 
   getListisPartOfFriends(uid: string): Promise<any> {
-    return firebase.firestore().collection(endpoint)
+    return firebase.default.firestore().collection(endpoint)
       .orderBy('date')
       .where('friends', 'array-contains', uid)
       .get();

@@ -17,8 +17,8 @@ export class AppComponent implements OnInit{
   constructor(
     private translateService: TranslateService
   ) {
-    if (!firebase.apps.length) {
-      firebase.initializeApp(environment.firebaseConfig);
+    if (!firebase.default.apps.length) {
+      firebase.default.initializeApp(environment.firebaseConfig);
     }
   }
 
