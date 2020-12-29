@@ -3,8 +3,10 @@
 A software for sharing shopping lists with others using Angular and Firebase.
 
 # Angular Version
-7.2.0
+11.0.5
 
+# Firebase Vesion
+8.2.1
 # Firebase Products
 **Products**
  - Authentication
