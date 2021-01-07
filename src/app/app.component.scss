@@ -1,0 +1,32 @@
+header,
+main,
+footer {
+  padding-left: 300px;
+}
+
+.menu-title {
+  text-align: center;
+  width: 100%;
+}
+
+.sidenav {
+  color: rgb(22, 67, 94);
+  padding: 15px;
+
+  li {
+    a {
+      color: rgb(134, 63, 42);
+    }
+    i {
+      color: rgb(124, 16, 12);
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  header,
+  main,
+  footer {
+    padding-left: 0;
+  }
+}

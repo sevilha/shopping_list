@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import * as M from 'materialize-css'
 import { environment } from '../environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import * as firebase from 'firebase';
@@ -9,10 +10,11 @@ const userLang = navigator.language;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, AfterViewInit {
 
-  title = 'angular-9-i18n';
   langs = ['en', 'pt'];
+  widthSidenav = '0';
+  instance;
 
   constructor(
     private translateService: TranslateService
@@ -31,8 +33,23 @@ export class AppComponent implements OnInit{
     }
   }
 
+  public ngAfterViewInit(): void {
+    setTimeout(function () {
+      var elem = document.querySelector('.sidenav');
+      this.instance = M.Sidenav.init(elem);
+    }, 0)
+  }
+
   public useLanguage(lang: string): void {
     console.log('Language ==> ', lang)
     this.translateService.use(lang);
+  }
+
+  openNav() {
+    this.instance.open();
+  }
+
+  closeNav() {
+    this.instance.open();
   }
 }
