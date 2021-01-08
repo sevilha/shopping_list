@@ -1,7 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { List } from '../model/list';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
-import { ListService } from './list.service';
 import { Friend } from '../model/friend';
 import { Item } from '../model/item';
 import { FriendsService } from '../friends/friends.service';
@@ -24,7 +22,6 @@ export class ListComponent implements OnInit {
   user;
 
   constructor(
-    private listService: ListService,
     private friendsService: FriendsService,
     private formBuilder: FormBuilder
   ) { }

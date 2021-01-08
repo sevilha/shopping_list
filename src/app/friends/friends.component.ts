@@ -37,4 +37,8 @@ export class FriendsComponent implements OnInit {
     };
   }
 
+  addFriend(id: string) {
+    return '';
+  }
+
 }

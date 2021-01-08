@@ -22,4 +22,12 @@ describe('FriendsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('add a new friend', () => {
+    expect(component.addFriend('id'));
+  });
+
+  it('add code that doesnt exist', () => {
+    expect(component.addFriend('z')).toThrowError();
+  });
 });
