@@ -34,10 +34,10 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    setTimeout(function () {
-      var elem = document.querySelector('.sidenav');
-      this.instance = M.Sidenav.init(elem);
-    }, 0)
+
+    var elem = document.querySelector('.sidenav');
+    this.instance = M.Sidenav.init(elem);
+
   }
 
   public useLanguage(lang: string): void {
@@ -50,6 +50,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   closeNav() {
-    this.instance.open();
+    this.instance.close();
   }
 }

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app.routing';
@@ -27,6 +28,7 @@ import { TranslationLoaderFactory } from 'src/factories/translate';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     TagInputModule,
     ReactiveFormsModule,

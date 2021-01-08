@@ -4,6 +4,7 @@ import { AuthGuardService } from './guards/auth.guard';
 import { ListComponent } from './list/list.component';
 import { LoginComponent } from './login/login.component';
 import { ListsComponent } from './lists/lists.component';
+import { FriendsComponent } from './friends/friends.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,18 @@ const routes: Routes = [
   },
   {
     path: 'lists',
+    component: ListsComponent,
+  },
+  {
+    path: 'list',
+    component: ListComponent,
+  },
+  {
+    path: 'friends',
+    component: FriendsComponent,
+  },
+  {
+    path: 'configs',
     component: ListsComponent,
   },
   {

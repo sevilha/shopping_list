@@ -7,14 +7,13 @@
   <h6 class="menu-title">Menu</h6>
   <hr>
   <h6><i class="fas fa-shopping-basket"></i> Listas</h6>
-  <li><a href="#!"><i class="far fa-list-alt"></i>Minhas Listas</a></li>
-  <li><a href="#!"><i class="fas fa-plus-circle"></i>Nova Lista</a></li>
+  <li><a [routerLink]="['/lists']" (click)="closeNav()"><i class="far fa-list-alt"></i>Minhas Listas</a></li>
+  <li><a [routerLink]="['/list']" (click)="closeNav()"><i class="fas fa-plus-circle"></i>Nova Lista</a></li>
   <hr>
   <h6><i class="fas fa-user-friends"></i> Amigos</h6>
-  <li><a href="#!"><i class="far fa-list-alt"></i>Lista de Amigos</a></li>
-  <li><a href="#!"><i class="fas fa-plus-circle"></i>Adicionar Amigo</a></li>
+  <li><a [routerLink]="['/friends']" (click)="closeNav()"><i class="far fa-list-alt"></i>Lista de Amigos</a></li>
   <hr>
-  <li><a href="#!"><i class="fas fa-user-cog"></i>Minha Conta</a></li>
+  <li><a [routerLink]="['/configs']" (click)="closeNav()"><i class="fas fa-user-cog"></i>Minha Conta</a></li>
 </ul>
 
 
