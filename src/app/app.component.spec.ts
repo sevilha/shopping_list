@@ -1,19 +1,30 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TestBed, async } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TagInputModule } from 'ngx-chips';
+import { TranslationLoaderFactory } from 'src/factories/translate';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        TagInputModule,
+        BrowserAnimationsModule,
+        FormsModule,
         ReactiveFormsModule,
-        FormsModule
+        HttpClientModule,
+        TranslateModule.forRoot({
+          loader: { provide: TranslateLoader, useFactory: TranslationLoaderFactory, deps: [HttpClient] }
+        })
       ],
       declarations: [
         AppComponent
       ],
+      providers: [TranslateService]
     }).compileComponents();
   }));
 
@@ -21,18 +32,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'ShoppingList'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('ShoppingList');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to ShoppingList!');
   });
 });

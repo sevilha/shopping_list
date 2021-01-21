@@ -11,7 +11,7 @@ import { Friend } from '../model/friend';
 export class FriendsComponent implements OnInit {
 
   public friendForm: FormGroup;
-  private friend: Friend;
+  //private friend: Friend;
 
   constructor(
     private friendsService: FriendsService,
@@ -39,6 +39,16 @@ export class FriendsComponent implements OnInit {
 
   addFriend(id: string) {
     return '';
+  }
+
+  getFriend(id: string) {
+    if (id.length) {
+      return id;
+    }
+  }
+
+  getAllFriends() {
+    return ['Carlos', 'Paulo'];
   }
 
 }

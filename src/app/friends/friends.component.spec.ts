@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FriendsComponent } from './friends.component';
 
@@ -8,9 +9,13 @@ describe('FriendsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FriendsComponent ]
+      imports: [
+        ReactiveFormsModule,
+        FormsModule
+      ],
+      declarations: [FriendsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -30,4 +35,32 @@ describe('FriendsComponent', () => {
   it('add code that doesnt exist', () => {
     expect(component.addFriend('z')).toThrowError();
   });
+
+  it('get a friend with a valid code', async () => {
+    const id = await component.getFriend('id');
+    expect(id.length > 0).toBeTrue();
+  });
+
+  it('get a friend with invalid code', async () => {
+    const id = await component.getFriend('id');
+    expect(id.length > 0).toBeTrue();
+  });
+
+
+  it('get a friend with empty code', async () => {
+    const id = await component.getFriend('id');
+    expect(id).toEqual(undefined);
+  });
+
+  it('get all friends', async () => {
+    try {
+      const friends = await component.getAllFriends();
+      expect(friends.length > 0).toBeTrue();
+    } catch (error) {
+      expect(error).toEqual('');
+    }
+  });
+
+
+
 });
