@@ -11,7 +11,9 @@ import { Friend } from '../model/friend';
 export class FriendsComponent implements OnInit {
 
   public friendForm: FormGroup;
-  //private friend: Friend;
+  public friend: Friend;
+  public friends: Array<Friend>[];
+  private uid = 'AS11';
 
   constructor(
     private friendsService: FriendsService,
@@ -20,12 +22,14 @@ export class FriendsComponent implements OnInit {
 
   ngOnInit() {
     this.friendForm = this.formBuilder.group({
-      name: [null, [Validators.required, Validators.minLength(6)]]
+      code: [null, [Validators.required, Validators.minLength(4)]]
     });
+
+    this.getAllFriends();
   }
 
-  verifyValidTouched(field) {
-    if (this.friendForm.get(field).invalid) {
+  verifyValidTouched(field: any) {
+    if (this.friendForm.get(field).invalid && this.friendForm.dirty) {
       return true;
     }
     return false;
@@ -37,18 +41,19 @@ export class FriendsComponent implements OnInit {
     };
   }
 
-  addFriend(id: string) {
-    return '';
+  addFriend(friend: Friend) {
+    return this.friendsService.addFriend(friend);
   }
 
-  getFriend(id: string) {
-    if (id.length) {
-      return id;
+  async getFriend(id: string) {
+    if (this.friendForm.valid) {
+      this.friend = await this.friendsService.getFriend(id);
     }
   }
 
-  getAllFriends() {
-    return ['Carlos', 'Paulo'];
+  async getAllFriends() {
+    this.friends = await this.friendsService.getAllFriends(this.uid);
+    console.log('Friends ----> ', this.friends)
   }
 
 }

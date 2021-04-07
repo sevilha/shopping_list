@@ -15,7 +15,12 @@ export class FriendsService {
   }
 
   getAllFriends(uid: string): Promise<any> {
-    return firebase.default.firestore().collection('friends').where('friendOf', '==', uid).get();
+    return firebase.default.firestore().collection('friends')
+      .where('user', '==', uid)
+      .get()
+      .then(actions => {
+        return actions.docs[0].data().friends
+      });
   }
 
   getFriend(id: string): Promise<any> {
