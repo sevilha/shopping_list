@@ -12,7 +12,7 @@ export class FriendsComponent implements OnInit {
 
   public friendForm: FormGroup;
   public friend: Friend;
-  public friends: Array<Friend>[];
+  public friends;
   private uid = 'AS11';
 
   constructor(
@@ -41,19 +41,30 @@ export class FriendsComponent implements OnInit {
     };
   }
 
-  addFriend(friend: Friend) {
-    return this.friendsService.addFriend(friend);
+  addFriend() {
+    return this.friendsService.addFriend(this.uid, this.friend);
   }
 
-  async getFriend(id: string) {
+  async findFriend() {
     if (this.friendForm.valid) {
-      this.friend = await this.friendsService.getFriend(id);
+      this.friend = await this.friendsService.getFriend(this.friendForm.get('code').value);
     }
   }
 
-  async getAllFriends() {
-    this.friends = await this.friendsService.getAllFriends(this.uid);
-    console.log('Friends ----> ', this.friends)
+  getAllFriends() {
+    this.friendsService.getAllFriends(this.uid).onSnapshot((doc) => {
+      this.friends = doc.docs[0].data().friends;
+    });
+  }
+
+  deleteFriend(friend: Friend) {
+    if(friend != undefined) {
+      this.friendsService.deleteFriend(this.uid, friend);
+    }
+  }
+
+  closeCard() {
+    this.friend = null;
   }
 
 }

@@ -1,27 +1,60 @@
 <section class="content">
-  <form [formGroup]="friendForm">
-    <label for="code">Buscar ID</label>
-    <input type="text" class="form-control" formControlName="code" [ngClass]="aplyCssError('code')">
-    <app-field-control-error [showError]="verifyValidTouched('code')"
-      msgError="O id de seu amigo não pode ser vazio e deve conter pelo menos 4 caracteres.">
-    </app-field-control-error>
-    <button class="btn waves-effect waves-light red darken-1" [disabled]="!friendForm.valid">Buscar</button>
-  </form>
+  <section class="frame">
+    <h5>Adicionar Amigo</h5>
+    <form [formGroup]="friendForm">
+      <label for="code">Buscar ID</label>
+      <input type="text" class="form-control" formControlName="code" [ngClass]="aplyCssError('code')" placeholder="Informe o código do seu amigo">
+      <app-field-control-error [showError]="verifyValidTouched('code')"
+        msgError="O id de seu amigo não pode ser vazio e deve conter pelo menos 4 caracteres.">
+      </app-field-control-error>
+      <button class="btn waves-effect waves-light #1565c0 blue darken-3" [disabled]="!friendForm.valid" (click)="findFriend()">
+        <i class="fas fa-search"></i>
+        Buscar
+      </button>
+    </form>
 
-  <div class="row" *ngIf="friend">
-    <div class="col s12 m6">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title">Card Title</span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-          <a href="#">This is a link</a>
+    <div class="card" *ngIf="friend">
+      <div class="col s12 m6">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">Amigo Encontrado</span>
+            <h6>{{friend.name}}</h6>
+            <p>Para adicionar à sua lista clique em + ou - para cancelar</p>
+          </div>
+          <div class="card-action">
+            <button class="btn waves-effect waves-light #1e88e5 blue darken-1" (click)="addFriend()">
+              <i class="fas fa-plus-circle"></i>
+            </button>
+            <button class="btn waves-effect waves-light red darken-1" (click)="closeCard()">
+              <i class="fas fa-minus-circle"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
+    <section class="friend-list">
+      <hr>
+      <h5>Lista de Amigos</h5>
+      <table>
+        <thead>
+          <tr>
+            <th class="name">Nome</th>
+            <th class="options">Opções</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let friend of friends">
+            <td>{{friend.name}}</td>
+            <td>
+              <button class="btn waves-effect waves-light red darken-1" (click)="deleteFriend(friend)">
+                <i class="fas fa-minus-circle"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </section>
 </section>

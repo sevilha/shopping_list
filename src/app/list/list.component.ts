@@ -32,7 +32,7 @@ export class ListComponent implements OnInit {
       quantity: [null, Validators.required]
     });
 
-    this.friendsList = await this.friendsService.getAllFriends(this.user.uid);
+    //this.friendsList = this.friendsService.getAllFriends(this.user.uid)();
   }
 
 }

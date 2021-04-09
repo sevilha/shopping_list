@@ -1,3 +1,35 @@
-.has-error{
+.card-action button{
+    margin-right: 10px;
+}
+
+.content {
+    align-items: center;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    flex-direction: column;
+    height: 94%;
+    position: fixed;
+    width: 100%;
+}
+
+.frame {
+    background-color: white;
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px rgb(233, 233, 233);
+    height: 90%;
+    margin-top: 20px;
+    padding: 50px;
+    width: 70%;
+}
+
+.has-error {
     border-color: #c73d3d;
+}
+
+.friend-list {
+    margin-top: 100px;
+    .name {
+        width: 75%;
+    }
 }
