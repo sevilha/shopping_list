@@ -15,6 +15,7 @@ import { FieldControlErrorComponent } from './shared/field-control-error/field-c
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslationLoaderFactory } from 'src/factories/translate';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TranslationLoaderFactory } from 'src/factories/translate';
     ListComponent,
     SettingsComponent,
     FriendsComponent,
-    FieldControlErrorComponent
+    FieldControlErrorComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

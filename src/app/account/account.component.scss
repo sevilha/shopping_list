@@ -1,0 +1,41 @@
+.account {
+  align-items: center;
+  background-color: rgb(238, 238, 238);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  .content {
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid rgb(216, 216, 216);
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px rgb(212, 212, 212);
+    color: rgb(21, 72, 114);
+    display: flex;
+    flex-direction: column;
+    font-size: 28px;
+    margin: 20px;
+    padding: 20px;
+    width: 800px;
+
+    .info {
+      align-items: flex-start;
+      display: flex;
+      
+      .item{
+        margin-right: 20px;
+      }
+
+      .item:last-child {
+        margin-right: 0px;
+      }
+    }
+
+    .qrcode {
+      font-size: 300px;
+    }
+  }
+}
