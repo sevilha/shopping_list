@@ -1,3 +1,6 @@
 {
-  "title":"Lista de Compras"
+  "title":"Lista de Compras",
+  "account": "Minha Conta",
+  "userName": "Nome",
+  "code": "Código"
 }
