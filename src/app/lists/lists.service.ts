@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';
 
-const endpoint = 'list';
+const endpoint = 'lists';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +11,11 @@ export class ListsService {
   constructor() { }
 
   getListsByOwner(uid: string): Promise<any> {
-    const id = 1;
     return firebase.default.firestore().collection(endpoint)
-      //.orderBy('date', 'asc')
-      .where('owner', '==', id)
+      .orderBy('created_at', 'desc')
+      .where('owner', '==', uid)
+      .where('excluded', '==', false)
+      .where('finished', '==', false)
       .get()
       .then(actions => {
         return actions.docs.map(action => {
@@ -25,7 +26,7 @@ export class ListsService {
       });
   }
 
-  getListisPartOfFriends(uid: string): Promise<any> {
+  getListsPartOfFriends(uid: string): Promise<any> {
     return firebase.default.firestore().collection(endpoint)
       .orderBy('date')
       .where('friends', 'array-contains', uid)

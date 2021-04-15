@@ -1,22 +1,55 @@
-<section>
-  <h2>{{'listas' | translate}}</h2>
-</section>
-
-<section class="content">
-  <ul *ngIf="lists">
-    <li *ngFor="let list of lists">
-      <div>{{list.title}}</div>
-      <div>{{list.date}}</div>
-      <div *ngFor="let friend of list.friends">
-        {{friend}}
+<section class="lists">
+  <section class="content">
+    <h2>{{'lists' | translate}}</h2>
+    <section *ngFor="let list of lists" class="items">
+      <div class="item">
+        <label for="title">
+          O Que?
+        </label>
+        <div id="title">{{list.title}}</div>
       </div>
-    </li>
-  </ul>
-  <ul *ngIf="!lists">
-    <li>
-      <label>
-        Vazio
-      </label>
-    </li>
-  </ul>
+      <div class="item">
+        <label for="created">
+          Aberto
+        </label>
+        <div id="created"> {{list.created_at.toDate() | date:'dd/MM/yyyy h:mm a'}}</div>
+      </div>
+      <div class="item">
+        <label for="end">
+          Quando?
+        </label>
+        <div id="end">
+          {{list.end_at.toDate() | date:'dd/MM/yyyy h:mm a'}}
+        </div>
+      </div>
+      <div class="item">
+        <div class="label">Cancelado?</div>
+        <label>
+          <input type="checkbox" [checked]="list.canceled" />
+          <span></span>
+        </label>
+      </div>
+      <div class="item">
+        <div class="label">Encerrado?</div>
+        <label>
+          <input type="checkbox" [checked]="list.finished" />
+          <span></span>
+        </label>
+      </div>
+      <div class="item">
+        <label for="obs">
+          Observação?
+        </label>
+        <div id="obs">
+          {{list.observation}}
+        </div>
+      </div>
+      <div *ngFor="let friend of list.friends" class="friends">
+        <label for="friend">Quem?</label>
+        <div class="item" id="friend">
+          {{friend.name}} Vai? {{friend.appear | translate}}
+        </div>
+      </div>
+    </section>
+  </section>
 </section>

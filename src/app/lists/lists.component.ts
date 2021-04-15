@@ -9,7 +9,7 @@ import { ListsService } from './lists.service';
 export class ListsComponent implements OnInit {
 
   lists: Array<any>;
-  uid: string;
+  uid: string = 'AS11';
 
   constructor(
     private listsService: ListsService
@@ -17,6 +17,7 @@ export class ListsComponent implements OnInit {
 
   async ngOnInit() {
     this.lists = await this.listsService.getListsByOwner(this.uid);
+    console.log('Lists ', this.lists)
   }
 
 }
