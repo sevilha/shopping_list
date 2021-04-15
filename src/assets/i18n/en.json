@@ -1,6 +1,10 @@
 {
   "title":"Shopping List",
   "account": "My Account",
+  "lists": "My Lists",
   "userName": "User Name",
-  "code": "Code"
+  "code": "Code",
+  "maybe": "Maybe",
+  "yes": "Yes",
+  "no": "No"
 }

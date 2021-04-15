@@ -1,6 +1,10 @@
 {
   "title":"Lista de Compras",
   "account": "Minha Conta",
+  "lists": "Minhas Listas",
   "userName": "Nome",
-  "code": "Código"
+  "code": "Código",
+  "maybe": "Talvez",
+  "yes": "Sim",
+  "no": "Não"
 }
