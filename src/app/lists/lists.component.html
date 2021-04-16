@@ -2,54 +2,57 @@
   <section class="content">
     <h2>{{'lists' | translate}}</h2>
     <section *ngFor="let list of lists" class="items">
-      <div class="item">
-        <label for="title">
-          O Que?
-        </label>
-        <div id="title">{{list.title}}</div>
-      </div>
-      <div class="item">
-        <label for="created">
-          Aberto
-        </label>
-        <div id="created"> {{list.created_at.toDate() | date:'dd/MM/yyyy h:mm a'}}</div>
-      </div>
-      <div class="item">
-        <label for="end">
-          Quando?
-        </label>
-        <div id="end">
-          {{list.end_at.toDate() | date:'dd/MM/yyyy h:mm a'}}
-        </div>
-      </div>
-      <div class="item">
-        <div class="label">Cancelado?</div>
-        <label>
-          <input type="checkbox" [checked]="list.canceled" />
-          <span></span>
-        </label>
-      </div>
-      <div class="item">
-        <div class="label">Encerrado?</div>
-        <label>
-          <input type="checkbox" [checked]="list.finished" />
-          <span></span>
-        </label>
-      </div>
-      <div class="item">
-        <label for="obs">
-          Observação?
-        </label>
-        <div id="obs">
-          {{list.observation}}
-        </div>
-      </div>
-      <div *ngFor="let friend of list.friends" class="friends">
-        <label for="friend">Quem?</label>
-        <div class="item" id="friend">
-          {{friend.name}} Vai? {{friend.appear | translate}}
-        </div>
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>{{'what' | translate}}</th>
+            <th>{{'createdAt' | translate}}</th>
+            <th>{{'when' | translate}}</th>
+            <th>{{'canceled' | translate}}</th>
+            <th>{{'finished' | translate}}</th>
+            <th>{{'obs' | translate}}</th>
+            <th>{{'who' | translate}}</th>
+            <th>{{'options' | translate}}</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="info">
+            <td id="title">{{list.title}}</td>
+            <td id="created"> {{list.created_at.toDate() | date:'dd/MM/yyyy h:mm a'}}</td>
+            <td id="end"> {{list.end_at.toDate() | date:'dd/MM/yyyy h:mm a'}} </td>
+            <td>No</td>
+            <td>No</td>
+            <td id="obs"> {{list.observation}}</td>
+            <td *ngIf="expanded">
+              <div *ngFor="let friend of list.friends" class="friends">
+                <div class="item" id="friend">
+                  {{friend.name}} Vai? {{friend.appear | translate}}
+                </div>
+              </div>
+            </td>
+            <td *ngIf="!expanded">
+              <div class="item" id="friend">
+                {{list.friends[0].name}} Vai? {{list.friends[0].appear | translate}} ...
+              </div>
+            </td>
+            <td>
+              <button class="waves-effect #e65100 orange darken-4 btn" title="{{'edit' | translate}}">
+                <i class="fas fa-file-alt"></i>
+              </button>
+
+              <button class="waves-effect waves-light btn" title="{{'expand' | translate}}" (click)="showMore()"
+                *ngIf="!expanded">
+                <i class="fas fa-caret-right"></i>
+              </button>
+              <button class="waves-effect waves-light btn" title="{{'expand' | translate}}" (click)="showMore()"
+                *ngIf="expanded">
+                <i class="fas fa-caret-down"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </section>
   </section>
 </section>
