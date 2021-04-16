@@ -1,10 +1,20 @@
 {
-  "title":"Lista de Compras",
   "account": "Minha Conta",
-  "lists": "Minhas Listas",
-  "userName": "Nome",
+  "canceled": "Cancelado?",
   "code": "Código",
+  "createdAt": "Criado em",
+  "edit": "Editar",
+  "expand": "Expandir",
+  "finished": "Encerrado?",
+  "lists": "Minhas Listas",
   "maybe": "Talvez",
-  "yes": "Sim",
-  "no": "Não"
+  "no": "Não",
+  "obs": "Obs",
+  "options": "Opções",
+  "title": "Lista de Compras",
+  "userName": "Nome",
+  "what": "O Que?",
+  "when": "Quando?",
+  "who": "Quem",
+  "yes": "Sim"
 }

@@ -1,10 +1,20 @@
 {
-  "title":"Shopping List",
   "account": "My Account",
-  "lists": "My Lists",
-  "userName": "User Name",
+  "canceled": "Canceled?",
   "code": "Code",
+  "createdAt": "Created",
+  "edit": "Edit",
+  "expand": "Expand",
+  "finished": "Finished",
+  "lists": "My Lists",
   "maybe": "Maybe",
-  "yes": "Yes",
-  "no": "No"
+  "no": "No",
+  "obs": "Obs",
+  "options": "Options",
+  "title": "Shopping List",
+  "userName": "User Name",
+  "what": "What?",
+  "when": "When",
+  "who": "Who",
+  "yes": "Yes"
 }
