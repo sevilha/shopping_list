@@ -1,47 +1,42 @@
-<nav>
-    <div class="nav-wrapper">
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a class="waves-effect waves-light btn"><i class="material-icons right">save</i>Salvar</a></li>
-        </ul>
-    </div>
-</nav>
-<section class="friends">
-    <label for="friends">
-        Compartilhar lista com:
-    </label>
-    <tag-input id="friends" [(ngModel)]='friends' [onlyFromAutocomplete]="true">
-        <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="friendsList">
-        </tag-input-dropdown>
-    </tag-input>
-</section>
-<section class="item">
-    <form [formGroup]="itemForm">
-        <label for="name">Nome do Item</label>
-        <input id="quantity" type="text" formControlName="name" class="form-control">
+<section class="content">
+    <nav>
+        <div class="nav-wrapper">
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="waves-effect waves-light btn"><em class="far fa-save"></em> Salvar</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="form">
+        <section class="item">
+            <form [formGroup]="itemForm">
+                <label for="name">Nome do Item</label>
+                <input id="quantity" type="text" formControlName="name" class="form-control">
 
-        <label for="name">Quantidade</label>
-        <input id="quantity" type="text" formControlName="quantity" class="form-control">
+                <label for="name">Quantidade</label>
+                <input id="quantity" type="text" formControlName="quantity" class="form-control">
 
-        <button class="btn-floating btn-large waves-effect waves-light red" (click)="addItem()">
-            <em class="material-icons">add</em>
-        </button>
-    </form>
-</section>
-<section class="items">
-    <ul *ngFor="let item of items">
-        <li class="collection-header">
-            <h4>Items da Lista</h4>
-        </li>
-        <li class="collection-item">
-            <div>
-                {{item.name}} - {{item.quantity}}
-                <button class="secondary-content" (click)="checkItem()">
-                    <em class="material-icons">check</em>
+                <button class="btn-floating btn-large waves-effect waves-light red" (click)="addItem()">
+                    <em class="fas fa-plus"></em>
                 </button>
-                <button class="secondary-content" (click)="removeItem()">
-                    <em class="material-icons">delete</em>
-                </button>
-            </div>
-        </li>
-    </ul>
+            </form>
+        </section>
+        <section class="items">
+            <ul *ngFor="let item of items">
+                <li class="collection-header">
+                    <h4>Items da Lista</h4>
+                </li>
+                <li class="collection-item">
+                    <div>
+                        {{item.name}} - {{item.quantity}}
+                        <button class="secondary-content" (click)="checkItem()">
+                            <em class="material-icons">check</em>
+                        </button>
+                        <button class="secondary-content" (click)="removeItem()">
+                            <em class="material-icons">delete</em>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </section>
 </section>
